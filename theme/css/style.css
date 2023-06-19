@@ -435,17 +435,7 @@ PRELOADER
 }
 
 .fa-spin {
-  -webkit-animation: fa-spin 1s infinite linear;
   animation: fa-spin 1s infinite linear;
-}
-
-@-webkit-keyframes fa-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(359deg);
-  }
 }
 @keyframes fa-spin {
   0% {
@@ -1478,7 +1468,7 @@ CONTACT PAGE
     padding-bottom: 70px;
   }
   .process-block,
-.pricing-block {
+  .pricing-block {
     margin-bottom: 40px;
   }
   .section-heading {
@@ -1570,7 +1560,7 @@ CONTACT PAGE
     padding-bottom: 70px;
   }
   .process-block,
-.pricing-block {
+  .pricing-block {
     margin-bottom: 40px;
   }
   .pricing-block.zoom-in {
@@ -1686,7 +1676,7 @@ CONTACT PAGE
     padding-bottom: 70px;
   }
   .process-block,
-.pricing-block {
+  .pricing-block {
     margin-bottom: 40px;
   }
   .pricing-block.zoom-in {
@@ -1826,7 +1816,7 @@ CONTACT PAGE
     padding-bottom: 70px;
   }
   .process-block,
-.pricing-block {
+  .pricing-block {
     margin-bottom: 40px;
   }
   .pricing-block.zoom-in {
