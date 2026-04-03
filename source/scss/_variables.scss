@@ -1,9 +1,29 @@
-$light: #fff;
-$primary-color: #21c87a;
-$secondary-color: #F4F7FC;
-$black: #212529;
-$black-light: #6c757d;
-$black-lighter: #888;
-$border-color:#eee;
-$primary-font: 'Muli', sans-serif;
-$secondary-font:'Muli', sans-serif;
+// =============================================================================
+// _variables.scss
+// Token de diseño centralizados del proyecto OASIS.
+// Modificar aquí propaga el cambio a todo el sistema de estilos.
+// =============================================================================
+
+
+// --- Colores ------------------------------------------------------------------
+
+$light:             #fff;           // Blanco puro (fondos, texto sobre primario)
+$primary-color:     #21c87a;        // Verde OASIS — color de marca principal
+$secondary-color:   #F4F7FC;        // Gris muy claro — fondos de secciones alternas
+$black:             #212529;        // Negro suave Bootstrap — titulares
+$black-light:       #6c757d;        // Gris medio Bootstrap — texto de cuerpo
+$black-lighter:     #888;           // Gris claro — texto secundario / captions
+
+
+// --- Bordes -------------------------------------------------------------------
+
+$border-color:      #eee;           // Borde neutro para tarjetas y separadores
+
+
+// --- Tipografía ---------------------------------------------------------------
+// NOTA: $primary-font y $secondary-font apuntan actualmente a la misma familia
+// (Muli). Si en el futuro se diferencian titulares de texto de cuerpo, basta
+// con actualizar el valor de $secondary-font aquí.
+
+$primary-font:   'Muli', sans-serif;  // Familia para titulares (h1–h6)
+$secondary-font: 'Muli', sans-serif;  // Familia para texto de cuerpo

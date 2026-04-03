@@ -1,42 +1,79 @@
-// Transition
+// =============================================================================
+// _mixins.scss
+// Mixins de utilidad para propiedades CSS que requieren prefijos de vendor.
+// Usar estos mixins garantiza compatibilidad con navegadores legacy sin
+// repetir prefijos manualmente en cada selector.
+// =============================================================================
+
+
+// -----------------------------------------------------------------------------
+// transition($what, $time, $how)
+// Aplica una transición con todos los prefijos de vendor.
+//
+// @param $what  Propiedad a animar         (default: all)
+// @param $time  Duración de la animación   (default: 0.2s)
+// @param $how   Función de timing          (default: ease-in-out)
+// -----------------------------------------------------------------------------
 @mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
-    -webkit-transition: $what $time $how;
-    -moz-transition:    $what $time $how;
-    -ms-transition:     $what $time $how;
-    -o-transition:      $what $time $how;
-    transition:         $what $time $how;
+  -webkit-transition: $what $time $how;
+  -moz-transition:    $what $time $how;
+  -ms-transition:     $what $time $how;
+  -o-transition:      $what $time $how;
+  transition:         $what $time $how;
 }
 
-// Transform
+
+// -----------------------------------------------------------------------------
+// transform($transforms)
+// Mixin base para aplicar cualquier función transform con prefijos de vendor.
+// Los mixins rotate, scale, translate y skew lo usan internamente.
+//
+// @param $transforms  Valor(es) de la propiedad CSS transform
+// -----------------------------------------------------------------------------
 @mixin transform($transforms) {
-	   -moz-transform: $transforms;
-	     -o-transform: $transforms;
-	    -ms-transform: $transforms;
-	-webkit-transform: $transforms;
-          transform: $transforms;
+  -webkit-transform: $transforms;
+  -moz-transform:    $transforms;
+  -ms-transform:     $transforms;
+  -o-transform:      $transforms;
+  transform:         $transforms;
 }
-// rotate
-@mixin rotate ($deg) {
+
+
+// -----------------------------------------------------------------------------
+// Utilidades de transform — envoltorios semánticos sobre @mixin transform
+// -----------------------------------------------------------------------------
+
+// Rotar $deg grados
+@mixin rotate($deg) {
   @include transform(rotate(#{$deg}deg));
 }
- 
-// scale
+
+// Escalar el elemento por un factor $scale
 @mixin scale($scale) {
-	 @include transform(scale($scale));
-} 
-// translate
-@mixin translate ($x, $y) {
-   @include transform(translate($x, $y));
+  @include transform(scale($scale));
 }
-// skew
-@mixin skew ($x, $y) {
-   @include transform(skew(#{$x}deg, #{$y}deg));
+
+// Trasladar el elemento ($x, $y)
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
 }
-//transform origin
-@mixin transform-origin ($origin) {
-    moz-transform-origin: $origin;
-	     -o-transform-origin: $origin;
-	    -ms-transform-origin: $origin;
-	-webkit-transform-origin: $origin;
-          transform-origin: $origin;
+
+// Inclinar el elemento ($x grados en X, $y grados en Y)
+@mixin skew($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+
+// -----------------------------------------------------------------------------
+// transform-origin($origin)
+// Define el punto de origen de la transformación con prefijos de vendor.
+//
+// @param $origin  Valor CSS de transform-origin (ej: "50% 50%", "top left")
+// -----------------------------------------------------------------------------
+@mixin transform-origin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin:    $origin;  // Corregido: prefijo -moz- (antes faltaba el guion)
+  -ms-transform-origin:     $origin;
+  -o-transform-origin:      $origin;
+  transform-origin:         $origin;
 }
