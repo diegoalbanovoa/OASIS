@@ -48,50 +48,82 @@
 </head>
 <body id="top-header">
 
-<!-- LOADER TEMPLATE -->
+<!-- ============================================================================
+  navigation.htm
+  Bloque de cabecera completo: top-bar + logo-bar + navbar principal + preloader.
+  Incluido en todas las páginas a través de partials/header.htm (vía gulp-file-include).
+
+  Estructura:
+    1. #page-loader         → Overlay de precarga (oculto por JS al cargar la página)
+    2. #top-bar             → Franja superior oscura: dirección + redes sociales
+    3. .logo-bar            → Franja blanca con logo y datos de contacto rápido
+    4. .main-navigation     → Navbar Bootstrap con color de marca
+============================================================================ -->
+
+
+<!-- 1. PRELOADER
+     Se muestra al abrir la página y es eliminado del DOM por JS (script.js)
+     una vez que el evento window.load se dispara. -->
 <div id="page-loader">
   <div class="loader-icon fa fa-spin colored-border"></div>
 </div>
-<!-- /LOADER TEMPLATE -->
+<!-- /PRELOADER -->
 
+
+<!-- 2. TOP BAR
+     Barra informativa de ancho completo sobre el header.
+     Visible en desktop; se adapta al centro en mobile. -->
 <div class="top-bar bg-dark py-2 py-md-0" id="top-bar">
   <div class="container">
     <div class="row align-items-center">
+
+      <!-- Dirección física de la empresa -->
       <div class="col-lg-6 col-md-6">
         <div class="top-bar-left text-white text-md-left text-sm-center">
           <i class="fas fa-map-marker-alt"></i>
-          <span class="ml-2">Avenida Norte 47a-40, las quintas, Tunja, Boyacá</span>
+          <span class="ml-2">Avenida Norte 47a-40, las quintas, Tunja, Boyacá</span>
         </div>
       </div>
 
+      <!-- Iconos de redes sociales -->
       <div class="col-lg-4 ml-lg-auto col-md-6">
         <ul class="list-inline list-unstyled header-socials text-md-right text-sm-center">
-          <li class="list-inline-item"><a href="#!"> <i class="fab fa-facebook-f"></i></a></li>
-          <li class="list-inline-item"><a href="#!"> <i class="fab fa-twitter"></i></a></li>
-          <li class="list-inline-item"><a href="#!"> <i class="fab fa-pinterest-p"></i></a></li>
-          <li class="list-inline-item"><a href="#!"> <i class="fab fa-linkedin"></i></a></li>
+          <li class="list-inline-item"><a href="#!" aria-label="Facebook"> <i class="fab fa-facebook-f"></i></a></li>
+          <li class="list-inline-item"><a href="#!" aria-label="Twitter"> <i class="fab fa-twitter"></i></a></li>
+          <li class="list-inline-item"><a href="#!" aria-label="Pinterest"> <i class="fab fa-pinterest-p"></i></a></li>
+          <li class="list-inline-item"><a href="#!" aria-label="LinkedIn"> <i class="fab fa-linkedin"></i></a></li>
         </ul>
       </div>
+
     </div>
   </div>
 </div>
+<!-- /TOP BAR -->
 
+
+<!-- 3. LOGO BAR
+     Solo visible en tablet (md) y desktop (lg). En mobile se oculta (d-none d-md-block).
+     Muestra logo + 3 bloques de información de contacto rápido. -->
 <div class="logo-bar d-none d-md-block d-lg-block bg-light">
   <div class="container">
     <div class="row">
+
+      <!-- Logo del sitio (solo visible en lg+) -->
       <div class="col-lg-2">
         <div class="logo d-none d-lg-block">
-          <!-- Brand -->
           <a class="navbar-brand js-scroll-trigger" href="index.html">
             <h2 class="mb-0">OASIS</h2>
           </a>
         </div>
       </div>
 
+      <!-- Bloques de contacto: teléfono, correo, horario -->
       <div class="col-lg-8 justify-content-end ml-lg-auto d-flex col-12 col-md-12 justify-content-md-center">
+
+        <!-- Teléfono -->
         <div class="top-info-block d-inline-flex">
           <div class="icon-block">
-            <i class="ti-mobile"></i>
+            <i class="ti-mobile" aria-hidden="true"></i>
           </div>
           <div class="info-block">
             <h5 class="font-weight-500">+7809346657</h5>
@@ -99,89 +131,92 @@
           </div>
         </div>
 
+        <!-- Correo electrónico -->
         <div class="top-info-block d-inline-flex">
           <div class="icon-block">
-            <i class="ti-email"></i>
+            <i class="ti-email" aria-hidden="true"></i>
           </div>
           <div class="info-block">
             <h5 class="font-weight-500">info@davz.com</h5>
             <p>Correo</p>
           </div>
         </div>
+
+        <!-- Horario de atención -->
         <div class="top-info-block d-inline-flex">
           <div class="icon-block">
-            <i class="ti-time"></i>
+            <i class="ti-time" aria-hidden="true"></i>
           </div>
           <div class="info-block">
-            <h5 class="font-weight-500">Mon-Sat 9:00-12.00 </h5>
+            <h5 class="font-weight-500">Mon-Sat 9:00-12.00</h5>
             <p>Domingo Cerrado</p>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </div>
+<!-- /LOGO BAR -->
 
-<!-- NAVBAR
-    ================================================= -->
+
+<!-- 4. NAVBAR PRINCIPAL
+     Navbar Bootstrap 4 de ancho completo con color de marca ($primary-color).
+     En mobile (<992px) colapsa en un menú hamburguesa.
+     La clase .main-navigation aplica margin-top:-40px para solaparse con .logo-bar. -->
 <div class="main-navigation" id="mainmenu-area">
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav navbar-togglable rounded-radius">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav navbar-togglable rounded-radius"
+         aria-label="Navegación principal">
 
+      <!-- Logo mobile (visible solo en <lg, donde .logo-bar está oculta) -->
       <a class="navbar-brand d-lg-none d-block" href="index.html">
         <h4 class="h3 mb-0">OASIS</h4>
       </a>
-      <!-- Toggler -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+
+      <!-- Botón hamburguesa — activa el colapso en mobile -->
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false"
+              aria-label="Toggle navigation">
         <span class="fa fa-bars"></span>
       </button>
 
-      <!-- Collapse -->
+      <!-- Menú colapsable -->
       <div class="collapse navbar-collapse has-dropdown" id="navbarCollapse">
-        <!-- Links -->
-        <ul class="navbar-nav ">
-          <li class="nav-item ">
-            <a href="index.html" class="nav-link js-scroll-trigger">
-              Home
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="about.html" class="nav-link js-scroll-trigger">
-              About
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="service.html" class="nav-link js-scroll-trigger">
-              Servicios
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="pricing.html" class="nav-link js-scroll-trigger">
-              Precios
-            </a>
-          </li>
 
-          <li class="nav-item ">
-            <a href="project.html" class="nav-link js-scroll-trigger">
-              Proyectos
-            </a>
+        <!-- Enlances de navegación principales -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link js-scroll-trigger">Home</a>
           </li>
-
-          <li class="nav-item ">
-            <a href="contact.html" class="nav-link">
-              Contacto
-            </a>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link js-scroll-trigger">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="service.html" class="nav-link js-scroll-trigger">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a href="pricing.html" class="nav-link js-scroll-trigger">Precios</a>
+          </li>
+          <li class="nav-item">
+            <a href="project.html" class="nav-link js-scroll-trigger">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contacto</a>
           </li>
         </ul>
 
+        <!-- CTA: botón de cotización al extremo derecho del navbar -->
         <ul class="ml-lg-auto list-unstyled m-0">
           <li><a href="contact.html" class="btn btn-white btn-circled">Consigue una cotización</a></li>
         </ul>
-      </div> <!-- / .navbar-collapse -->
+
+      </div><!-- /.navbar-collapse -->
     </nav>
-  </div> <!-- / .container -->
+  </div><!-- /.container -->
 </div>
+<!-- /NAVBAR PRINCIPAL -->
 
 
    <!-- HERO
@@ -253,7 +288,7 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-center mt50">
+                    <div class="row justify-content-center mt-80">
                         <div class="col-lg-6">
                             <div class="project-info">
                                 <h3>How we did it</h3>

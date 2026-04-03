@@ -5,26 +5,7 @@
  * GITHUB: https://github.com/themefisher/
  */
 
-/*=== MEDIA QUERY ===*/ /*-----------------------------
- CSS INDEXING
-* --------------------------------------
-* 01.GLOBAL CSS STYLE
-* 02.TYPOGRAPHY CSS STYLE
-* 03.BUTTONS STYLE
-* 04.HOMEPAGE CSS STYLE
-    -LOGO CSS
-    -MENU CSS
-    -BACKGROUND
-* 05.FEATURES CSS STYLE
-* 06.SERVICE CSS STYLE
-* 07.ABOUT CSS STYLE
-* 08.PRICING CSS STYLE
-* 09.TESTIMONIAL STYLE
-* 10.LATEST BLOG CSS STYLE
-* 11.CONTACT CSS STYLE
-* 12.FOOTER CSS STYLE
-* ----------------------------------------
-*/
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,500,700,900");
 html {
   font-family: sans-serif;
@@ -119,13 +100,6 @@ h6 {
   background: #F4F7FC;
 }
 
-/*--------------------
-Common Styles
------------------*/
-.section-heading {
-  margin-bottom: 80px;
-}
-
 img {
   vertical-align: middle;
   border-style: none;
@@ -135,6 +109,10 @@ img {
   padding: 0.25rem;
   border: 1px solid #dee2e6;
   background-color: #fff;
+}
+
+.section-heading {
+  margin-bottom: 80px;
 }
 
 .section {
@@ -160,13 +138,6 @@ img {
     padding-top: 10.3125rem;
   }
 }
-.bg-grey {
-  background: #F4F7FC;
-}
-
-/*-------------------
-  BUTTONS STYLE
-----------------=----*/
 .btn {
   font-size: 0.6875rem;
   font-weight: 700;
@@ -192,6 +163,11 @@ img {
   border: 1px solid #222;
 }
 
+.btn-outline-dark:hover {
+  background: #222 !important;
+  color: #fff !important;
+}
+
 .btn-white {
   background: #fff;
   color: #212529;
@@ -204,11 +180,6 @@ img {
 .btn-trans-white:hover {
   color: #fff;
   opacity: 0.5;
-}
-
-.btn-outline-dark:hover {
-  background: #222 !important;
-  color: #fff !important;
 }
 
 .btn.btn-link {
@@ -242,9 +213,10 @@ img {
   box-shadow: 0 7px 22px rgba(0, 0, 0, 0.08);
 }
 
-/*------------------------
- BACKGROUND
-----------------------------*/
+.box-shadow {
+  box-shadow: 0 25px 100px -5px rgba(0, 0, 0, 0.15);
+}
+
 .bg-cover {
   background-repeat: no-repeat;
   background-position: 50%;
@@ -253,7 +225,7 @@ img {
 
 .bg-cover,
 .bg-overlay,
-.bg-overlay:before {
+.bg-overlay::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -261,17 +233,13 @@ img {
   left: 0;
 }
 
-.bg-overlay:before {
+.bg-overlay::before {
   content: "";
   opacity: 0.55;
   background-color: #212529;
 }
 
-.box-shadow {
-  box-shadow: 0 25px 100px -5px rgba(0, 0, 0, 0.15);
-}
-
-.mt50 {
+.mt-80 {
   margin-top: 80px;
 }
 
@@ -292,11 +260,11 @@ a:hover,
 a:focus {
   outline: none;
   text-decoration: none;
-  color: #1a9c5f;
+  color: rgb(25.7768240343, 156.2231759657, 95.2961373391);
 }
 
 /*----------------------
- HEADER STYLE
+ REDES SOCIALES (top-bar)
 -----------------------*/
 .header-socials {
   line-height: 22px;
@@ -931,7 +899,7 @@ h5.subtitle {
 }
 
 /*----------------------
- PRoject
+ SECCIÓN PROYECTOS DESTACADOS
 -----------------------*/
 #projects-wrap {
   position: relative;
@@ -1416,8 +1384,8 @@ CONTACT PAGE
 }
 
 /*----------------------------------
-    MEDIUM LAYOUT: 1280px
------------------------------------*/
+  LARGE DESKTOP: max-width 1200px
+----------------------------------*/
 @media (max-width: 1200px) {
   .navbar {
     text-align: center;
@@ -1427,8 +1395,8 @@ CONTACT PAGE
   }
 }
 /*----------------------------------
-    TABLET LAYOUT: 768px
-------------------------------------*/
+  DESKTOP/TABLET LANDSCAPE: max-width 992px
+----------------------------------*/
 @media (max-width: 992px) {
   .section-title {
     font-size: 30px;
@@ -1527,8 +1495,8 @@ CONTACT PAGE
   }
 }
 /*----------------------------------
-    WIDE MOBILE LAYOUT: 7680px
------------------------------------*/
+  TABLET PORTRAIT: max-width 768px
+----------------------------------*/
 @media (max-width: 768px) {
   .display-4 {
     font-size: 2.5rem;
