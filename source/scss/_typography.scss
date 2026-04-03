@@ -1,23 +1,27 @@
-/*-----------------------------
- CSS INDEXING
-* --------------------------------------
-* 01.GLOBAL CSS STYLE
-* 02.TYPOGRAPHY CSS STYLE
-* 03.BUTTONS STYLE
-* 04.HOMEPAGE CSS STYLE
-    -LOGO CSS
-    -MENU CSS
-    -BACKGROUND
-* 05.FEATURES CSS STYLE
-* 06.SERVICE CSS STYLE
-* 07.ABOUT CSS STYLE
-* 08.PRICING CSS STYLE
-* 09.TESTIMONIAL STYLE
-* 10.LATEST BLOG CSS STYLE
-* 11.CONTACT CSS STYLE
-* 12.FOOTER CSS STYLE
-* ----------------------------------------
-*/
+// =============================================================================
+// _typography.scss
+// Establece la base tipográfica y de reset del documento.
+// Importa la fuente Muli desde Google Fonts y define:
+//   - Reset mínimo de html/body
+//   - Escala de titulares h1–h6 (tamaños en rem)
+//   - Clase .section-title para los títulos de sección de landing
+//   - Clase .bg-grey (fondo alternado de secciones — fuente canónica)
+//
+// Índice de secciones del sistema de estilos completo:
+// ------------------------------------------------------
+//  01. Reset global (html, body)
+//  02. Tipografía (h1–h6, .lead, .section-title)
+//  03. Botones       → _common.scss
+//  04. Homepage      → _header.scss, _slider.scss, _backgrounds.scss
+//  05. Features      → _service.scss
+//  06. Servicios     → _service.scss
+//  07. About         → _about.scss
+//  08. Pricing       → _pricing.scss
+//  09. Testimonials  → _testimonial.scss
+//  10. Blog          → _blog.scss
+//  11. Contacto      → _contact.scss
+//  12. Footer        → _footer.scss
+// =============================================================================
 
 
 // Fonts 

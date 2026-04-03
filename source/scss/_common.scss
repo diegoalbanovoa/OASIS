@@ -1,31 +1,49 @@
-/*--------------------
-Common Styles
------------------*/
+// =============================================================================
+// _common.scss
+// Estilos compartidos reutilizables a lo largo de todas las páginas.
+// Incluye: layout de secciones, botones, utilidades de fondo y helpers.
+// =============================================================================
 
-.section-heading {
-  margin-bottom: 80px;
-}
 
+// -----------------------------------------------------------------------------
+// IMÁGENES
+// -----------------------------------------------------------------------------
+
+// Elimina el gap vertical que los navegadores añaden a imágenes inline
 img {
   vertical-align: middle;
   border-style: none;
 }
 
+// Miniatura con borde y padding (usada en galerías / tarjetas de proyecto)
 .img-thumbnail {
   padding: .25rem;
   border: 1px solid #dee2e6;
-  background-color: #fff
+  background-color: $light;
 }
 
+
+// -----------------------------------------------------------------------------
+// LAYOUT DE SECCIONES
+// .section       → sección de página completa con padding vertical generoso
+// .section-top   → sólo padding superior (secciones de apertura)
+// .section-bottom → sólo padding inferior (secciones de cierre)
+// .section-heading → contenedor del titular + subtítulo de cada sección
+// -----------------------------------------------------------------------------
+
+.section-heading {
+  margin-bottom: 80px;
+}
 
 .section {
   position: relative;
   padding: 8.125rem 0;
 }
 
-@media (min-width:768px) {
+// Reduce padding en tablets
+@media (min-width: 768px) {
   .section {
-    padding: 7.5rem 0
+    padding: 7.5rem 0;
   }
 }
 
@@ -37,21 +55,19 @@ img {
   padding-bottom: 8.125rem;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .section-top {
-    padding-top: 10.3125rem
+    padding-top: 10.3125rem;
   }
 }
 
 
-.bg-grey {
-  background: #F4F7FC;
-}
+// -----------------------------------------------------------------------------
+// BOTONES
+// Extiende el sistema de botones de Bootstrap con las variantes de marca OASIS.
+// -----------------------------------------------------------------------------
 
-/*-------------------
-  BUTTONS STYLE
-----------------=----*/
-
+// Base: sobreescribe padding y tamaño de letra de Bootstrap
 .btn {
   font-size: .6875rem;
   font-weight: 700;
@@ -60,11 +76,10 @@ img {
   padding: 1rem 2.4rem;
   border: 0.1rem solid transparent;
   transition: all 0.2s ease-in-out;
-  letter-spacing: .5px
+  letter-spacing: .5px;
 }
 
-
-
+// Botón circular (icono) — usa !important para sobreescribir Bootstrap
 .btn-circle {
   display: inline-flex;
   width: 4.20313rem !important;
@@ -72,113 +87,136 @@ img {
   padding: 0 !important;
   border-radius: 50%;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
-
+// Borde oscuro con hover relleno
 .btn-outline-dark {
-  border: 1px solid#222;
-}
-
-.btn-white {
-  background: #fff;
-  color: #212529;
-}
-
-.btn-trans-white {
-  border: 1px solid#fff;
-  color: #fff;
-  &:hover {
-    color: #fff;
-    opacity: .5;
-  }
+  border: 1px solid #222;
 }
 
 .btn-outline-dark:hover {
   background: #222 !important;
-  color: #fff !important;
+  color: $light !important;
 }
 
+// Botón blanco — fondo blanco con texto oscuro; hover → color primario
+.btn-white {
+  background: $light;
+  color: $black;
+}
+
+// Botón translúcido sobre fondos con imagen
+.btn-trans-white {
+  border: 1px solid $light;
+  color: $light;
+
+  &:hover {
+    color: $light;
+    opacity: .5;
+  }
+}
+
+// .btn.btn-link → apariencia de enlace sin subrayado
 .btn.btn-link {
-  color: #212529;
+  color: $black;
 }
 
+// Elimina el outline de foco de Bootstrap (el diseño usa indicadores propios)
 .btn:focus {
-  box-shadow: none !important
+  box-shadow: none !important;
 }
 
+// Variante con bordes completamente redondeados (pill)
 .btn-circled {
   border-radius: 75px;
 }
 
-
+// Color primario: bg, botón primario y hover de botón blanco comparten el mismo verde
 .bg-primary,
 .btn-primary,
 .btn-white:hover {
-  background: #21c87a !important;
-  border-color: #21c87a !important;
-  color: #fff;
+  background: $primary-color !important;
+  border-color: $primary-color !important;
+  color: $light;
 }
 
+// Hover del botón primario → negro corporativo
 .bg-dark,
 .btn-primary:hover {
   background: #232323 !important;
   border-color: #232323 !important;
-  color: #fff;
+  color: $light;
 }
+
+
+// -----------------------------------------------------------------------------
+// SOMBRAS
+// -----------------------------------------------------------------------------
 
 .shadow-sm-2 {
   box-shadow: 0 7px 22px rgba(0, 0, 0, 0.08);
 }
 
+.box-shadow {
+  box-shadow: 0 25px 100px -5px rgba(0, 0, 0, .15);
+}
 
 
-/*------------------------
- BACKGROUND
-----------------------------*/
-
+// -----------------------------------------------------------------------------
+// FONDOS
+// .bg-cover   → fondo de imagen a pantalla completa, centrado y cubierto
+// .bg-overlay → pseudo-elemento oscuro semitransparente sobre una imagen
+// -----------------------------------------------------------------------------
 
 .bg-cover {
   background-repeat: no-repeat;
   background-position: 50%;
-  background-size: cover
+  background-size: cover;
 }
 
+// Posicionamiento absoluto compartido entre bg-cover y bg-overlay
 .bg-cover,
 .bg-overlay,
-.bg-overlay:before {
+.bg-overlay::before {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0
+  left: 0;
 }
 
-.bg-overlay:before {
+// Capa de oscurecimiento del 55% sobre fondos con imagen
+.bg-overlay::before {
   content: "";
   opacity: .55;
-  background-color: #212529
-}
-
-.box-shadow {
-  box-shadow: 0 25px 100px -5px rgba(0, 0, 0, .15)
+  background-color: $black;
 }
 
 
+// -----------------------------------------------------------------------------
+// HELPERS DE SPACING Y COLOR
+// -----------------------------------------------------------------------------
 
-
-.mt50 {
+// Margen superior de 80px — usado en páginas de proyecto y producto
+// NOTA: el nombre "mt-80" refleja el valor real de la propiedad
+.mt-80 {
   margin-top: 80px;
 }
-
 
 .mb-30 {
   margin-bottom: 30px;
 }
 
+// Color de fondo primario como clase utilitaria
 .bg-primary {
   background: $primary-color !important;
 }
+
+
+// -----------------------------------------------------------------------------
+// ENLACES
+// -----------------------------------------------------------------------------
 
 a {
   color: $primary-color;
@@ -189,5 +227,5 @@ a:hover,
 a:focus {
   outline: none;
   text-decoration: none;
-  color: darken($primary-color, 10);
+  color: darken($primary-color, 10%);
 }

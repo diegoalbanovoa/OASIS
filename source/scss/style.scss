@@ -1,21 +1,46 @@
-@import "variables.scss";
-@import "mixins.scss";
-@import "media-query.scss";
-@import "typography.scss";
-@import "main.scss";
-@import "common.scss";
-@import "templates/header.scss";
-@import "templates/page-banner.scss";
-@import "templates/navigation.scss";
-@import "templates/slider.scss";
-@import "templates/backgrounds.scss";
-@import "templates/about.scss";
-@import "templates/service.scss";
-@import "templates/portfolio.scss";
-@import "templates/process.scss";
-@import "templates/pricing.scss";
-@import "templates/blog.scss";
-@import "templates/testimonial.scss";
-@import "templates/contact.scss";
-@import "templates/footer.scss";
-@import "responsive.scss";
+// =============================================================================
+// style.scss  —  Punto de entrada principal del sistema de estilos OASIS
+//
+// El orden de importación es intencional:
+//   1. Configuración (variables, mixins, breakpoints) — sin output CSS
+//   2. Base (tipografía, reset) — reglas globales
+//   3. Componentes compartidos — reutilizables entre páginas
+//   4. Templates por sección — cada uno encapsula una sección de página
+//   5. Responsive — overrides de breakpoint sobre los estilos anteriores
+// =============================================================================
+
+
+// --- 1. Configuración ---------------------------------------------------------
+@import "variables.scss";     // Tokens de diseño: colores, fuentes
+@import "mixins.scss";        // Helpers CSS con prefijos de vendor (transition, transform…)
+@import "media-query.scss";   // Definición de breakpoints como mixins SCSS
+
+
+// --- 2. Base ------------------------------------------------------------------
+@import "typography.scss";    // Reset de html/body, escala tipográfica (h1–h6), .section-title
+
+
+// --- 3. Componentes compartidos -----------------------------------------------
+@import "main.scss";          // (vacío actualmente — reservado para estilos globales extra)
+@import "common.scss";        // Secciones, botones, fondos, helpers de spacing y enlaces
+
+
+// --- 4. Templates por sección (uno por componente de página) -----------------
+@import "templates/header.scss";      // Top-bar, logo-bar, navbar, preloader
+@import "templates/page-banner.scss"; // Banners de cabecera de páginas interiores
+@import "templates/navigation.scss";  // Estilos adicionales de la barra de navegación
+@import "templates/slider.scss";      // Carrusel/slider de la sección hero
+@import "templates/backgrounds.scss"; // Fondos decorativos y secciones con imagen
+@import "templates/about.scss";       // Sección "Sobre OASIS"
+@import "templates/service.scss";     // Grid de servicios
+@import "templates/portfolio.scss";   // Galería de proyectos y detalle de proyecto
+@import "templates/process.scss";     // Sección de proyectos / proceso de trabajo
+@import "templates/pricing.scss";     // Tabla de planes y precios
+@import "templates/blog.scss";        // Últimas publicaciones del blog
+@import "templates/testimonial.scss"; // Carrusel de testimonios de clientes
+@import "templates/contact.scss";     // Formulario y mapa de contacto
+@import "templates/footer.scss";      // Footer global del sitio
+
+
+// --- 5. Responsive ------------------------------------------------------------
+@import "responsive.scss";    // Overrides específicos de componentes por breakpoint
