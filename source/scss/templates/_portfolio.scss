@@ -1,6 +1,16 @@
+// =============================================================================
+// _portfolio.scss
+// Estilos para las secciones de proyectos:
+//   #projects-wrap       → sección hero de proyectos (fondo con imagen)
+//   .project-content     → tarjeta de proyecto individual
+//   .project-content-block → bloque informativo superpuesto en proyectos destacados
+//   .single-work / .work-block → grid de portfolio con efecto hover
+//   .project-details-info → página de detalle de proyecto individual
+// =============================================================================
+
 
 /*----------------------
- PRoject
+ SECCIÓN PROYECTOS DESTACADOS
 -----------------------*/
 #projects-wrap {
     position: relative;
@@ -54,7 +64,7 @@
 .project-content-block {
     padding: 70px 40px;
     margin-left: -120px;
-    background: #F4F7FC;
+    background: $secondary-color;
     position: absolute;
     bottom: -70px;
     border: 15px solid $light;

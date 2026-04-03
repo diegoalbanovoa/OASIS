@@ -1,5 +1,18 @@
+// =============================================================================
+// _header.scss
+// Estilos para la barra superior (top-bar), barra de logo/contacto (logo-bar),
+// navbar principal y el preloader de página.
+//
+// Estructura del header en el DOM (partials/blocks/navigation.htm):
+//   #top-bar          → franja oscura con dirección + redes sociales
+//   .logo-bar         → franja blanca con logo + datos de contacto rápido
+//   .main-navigation  → navbar Bootstrap con color de marca ($primary-color)
+//   #page-loader      → overlay de precarga (oculto por JS al cargar la página)
+// =============================================================================
+
+
 /*----------------------
- HEADER STYLE
+ REDES SOCIALES (top-bar)
 -----------------------*/
 
 .header-socials {
@@ -10,7 +23,7 @@
     padding: 8px;
 
     a {
-      color: #21c87a;
+      color: $primary-color;
     }
   }
 }
@@ -36,7 +49,7 @@
 
 .icon-block {
   margin-right: 20px;
-  color: #21c87a;
+  color: $primary-color;
   font-size: 40px;
   line-height: 20px;
   font-weight: 400;

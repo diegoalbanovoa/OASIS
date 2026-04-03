@@ -1,6 +1,15 @@
+// =============================================================================
+// _responsive.scss
+// Overrides de componentes específicos para cada breakpoint.
+// Los breakpoints se definen como mixins en _media-query.scss.
+// Orden de cascada (de mayor a menor): large-desktop → desktop → tablet
+//                                       → tablet-xs → mobile → mobile-xs
+// =============================================================================
+
+
 /*----------------------------------
-    MEDIUM LAYOUT: 1280px
------------------------------------*/
+  LARGE DESKTOP: max-width 1200px
+----------------------------------*/
 @include large-desktop {
 
   .navbar {
@@ -14,8 +23,8 @@
 
 
 /*----------------------------------
-    TABLET LAYOUT: 768px
-------------------------------------*/
+  DESKTOP/TABLET LANDSCAPE: max-width 992px
+----------------------------------*/
 @include desktop {
   .section-title {
     font-size: 30px;
@@ -143,8 +152,8 @@
 
 
 /*----------------------------------
-    WIDE MOBILE LAYOUT: 7680px
------------------------------------*/
+  TABLET PORTRAIT: max-width 768px
+----------------------------------*/
 
 @include tablet {
 
@@ -261,7 +270,7 @@
 
   .navbar-collapse.collapse.show {
     padding-bottom: 30px;
-    background: #21c87a;
+    background: $primary-color;
   }
 
   #map {
@@ -304,7 +313,7 @@
 
   .navbar-collapse.collapse.show {
     padding-bottom: 30px;
-    background: #21c87a;
+    background: $primary-color;
   }
 
   .top-info-block {
@@ -603,7 +612,7 @@
 
   .navbar-collapse.collapse.show {
     padding-bottom: 30px;
-    background: #21c87a;
+    background: $primary-color;
   }
 
   .web-service-block {
